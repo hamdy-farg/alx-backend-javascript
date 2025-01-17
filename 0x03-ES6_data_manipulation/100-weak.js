@@ -8,6 +8,14 @@ export const weakMap = new WeakMap();
  */
 const MAX_ENDPOINT_CALLS = 5;
 
+/**
+ * Tracks the number of calls made to an API's endpoint.
+ * @param {{
+ *   protocol: String,
+ *   name: String,
+ * }} endpoint - The endpoint to make a request to.
+ * @author Hamdy Farg <https://github.com/hamdy-farg>
+ */
 export function queryAPI(endpoint) {
   if (!weakMap.has(endpoint)) {
     weakMap.set(endpoint, 0);

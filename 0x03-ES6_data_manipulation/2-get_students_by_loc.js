@@ -1,8 +1,17 @@
-export default function getStudentsByLocation(students_list, city_name) {
-  let arr_obj_of_specific_city = [];
-  return students_list.filter((element) => {
-    if (element.location === city_name) {
-      return arr_obj_of_specific_city.push(element);
-    }
-  });
+/**
+ * Retrieves students in a given location.
+ * @param {{
+ *   id: Number,
+ *   firstName: String,
+ *   location: String
+ * }[]} students - The list of students.
+ * @param {String} city - The location.
+ * @author Hamdy Farg <https://github.com/hamdy-farg>
+ * @returns
+ */
+export default function getStudentsByLocation(students, city) {
+  if (students instanceof Array) {
+    return students.filter((student) => student.location === city);
+  }
+  return [];
 }

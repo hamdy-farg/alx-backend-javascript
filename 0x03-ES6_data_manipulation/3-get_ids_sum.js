@@ -1,10 +1,20 @@
-export default function getStudentIdsSum(students_list) {
-  function sum() {
-    let sum = 0;
-    students_list.forEach((element) => {
-      sum += element.id;
-    });
-    return sum;
+/**
+ * Retrieves the sum of ids of a list of students.
+ * @param {{
+ *   id: Number,
+ *   firstName: String,
+ *   location: String
+ * }[]} students - The list of students.
+ * @author Hamdy Farg <https://github.com/hamdy-farg>
+ * @returns {Number}
+ */
+export default function getStudentIdsSum(students) {
+  if (students instanceof Array) {
+    return students.reduce(
+      (prevStudent, curStudent) =>
+        prevStudent.id || prevStudent + curStudent.id,
+      0
+    );
   }
-  return students_list.reduce(sum);
+  return 0;
 }
